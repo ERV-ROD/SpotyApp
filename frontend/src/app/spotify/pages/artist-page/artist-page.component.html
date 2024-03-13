@@ -1,0 +1,29 @@
+<div class="container py-3 d-flex flex-row-reverse ">
+  <button class="btn btn-success" (click)="goBack()"><i class="fa-solid fa-circle-arrow-left"></i> Return</button>
+</div>
+
+@if(finish == false){
+  <div class="container alert alert-warning d-flex align-items-center justify-content-center">
+    <i class="fa-solid fa-triangle-exclamation me-2"></i> Loading...
+  </div>
+}@else{
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+        <img class="img-fluid  rounded" [src]="artist.images[0].url" alt="">
+      </div>
+      <div class="col-10 d-flex flex-column justify-content-center w-auto">
+        <h1 class="text-light">Artist: {{artist.name}}</h1>
+        <a class="bg-success m-1 badge cursor-pointer" [href]="artist.external_urls.spotify"  target="_blank" style="cursor: pointer;text-decoration: none; ">Visitar página <i class="fa-solid fa-up-right-from-square"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container ">
+    <tracks-table [tracks]="songs"></tracks-table>
+  </div>
+
+}
+
+

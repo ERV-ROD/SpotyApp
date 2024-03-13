@@ -1,0 +1,15 @@
+audio {
+  max-width: 95%;
+  margin: 10px 0;
+  border: none;
+  padding: 5px;
+  background-color: transparent;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: #8596a8;
+  border-radius: 0px;
+  padding: 5px;
+}
+
+

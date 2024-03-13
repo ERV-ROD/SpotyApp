@@ -1,0 +1,32 @@
+
+.scrollContainer::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.scrollContainer::-webkit-scrollbar:horizontal {
+  width:10px;
+  height:4px;
+}
+
+.scrollContainer::-webkit-scrollbar-button:increment,.scrollContainer::-webkit-scrollbar-button {
+  display: none;
+}
+
+
+.scrollContainer::-webkit-scrollbar-thumb {
+  background-color:  rgb(17, 17, 17);
+  border-radius: 10px;
+  height: 2px;
+}
+
+.scrollContainer::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.play{
+  top:10px;
+  right:10px;
+  border-radius: 50%;
+  background-color: #18bc51;
+  border:4px solid #212529;
+}

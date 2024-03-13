@@ -1,0 +1,17 @@
+<div class="card mt-4 text-center bg-dark w-100 position-relative">
+  <div class="card-body text-white">
+    <img class="img-fluid img-thumbnail " [src]="image" alt="" style="background: transparent;border: none;">
+      <p class="card-text mt-3">
+        <b>{{item.name.slice(0, 20)}}</b>
+      </p>
+      <div class="d-flex overflow-auto scrollContainer w-auto">
+        @for(artist of artists; track $index){
+          <a class="badge bg-success w-100 ms-1" [routerLink]="['/artist/', artist.id]" style="text-decoration: none; cursor:pointer">{{artist.name}}</a>
+        }
+      </div>
+      <a *ngIf="hasPreview" [routerLink]="['/reproduce/', item.id]" class="btn btn-success position-absolute play"><i class="fa-solid fa-play"></i></a>
+      <a *ngIf="IsAlbum" [routerLink]="['/album/', item.id]" class="btn btn-success position-absolute play"><i class="fa-solid fa-bars-staggered" style="font-size: 13px;"></i></a>
+  </div>
+
+
+</div>

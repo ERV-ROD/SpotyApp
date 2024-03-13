@@ -13,6 +13,7 @@ export interface Track {
     href:          string;
     id:            string;
     is_playable:   boolean;
+    images:        Image[];
     name:          string;
     popularity:    number;
     preview_url:   string;

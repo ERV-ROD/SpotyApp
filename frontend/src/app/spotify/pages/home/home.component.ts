@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { SpotifyService } from '../../services/spotify.service';
-import { NewRealeses } from '../../interfaces/new-realeases';
+import { Track } from './../../interfaces/spotify-top-tracks';
 import { of, switchMap } from 'rxjs';
+import { CardListComponent } from "../../components/card-list/card-list.component";
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+    selector: 'app-home',
+    standalone: true,
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.css',
+    imports: [CardListComponent]
 })
 export class HomeComponent {
   constructor(private spotifyService: SpotifyService) {}
@@ -28,7 +29,6 @@ export class HomeComponent {
       token => {
         this.spotifyService.setToken(token?.access_token);
         this.token = token?.access_token;
-        console.log('Token:', this.token);
         this.fetchNewReleases();
       }
     )
@@ -40,7 +40,7 @@ export class HomeComponent {
   private fetchNewReleases(): void {
     this.spotifyService.getNewReleases(this.token).subscribe(
       newReleases => {
-        console.log('New Releases:', newReleases);
+        console.log(newReleases);
         newReleases?.albums.items.forEach((item: any) => {
           this.newReleases.push(item);
         });

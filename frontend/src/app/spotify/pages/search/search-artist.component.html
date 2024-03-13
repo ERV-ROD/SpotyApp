@@ -1,0 +1,56 @@
+
+<div class="container pt-4">
+  <div class="row">
+    <div class="col-10">
+      <search
+        [placehoder]='"Search"'
+        (onValue)="searhBy($event)"
+      ></search>
+    </div>
+    <div class="col">
+      <select class="form-select" aria-label="Default select example" (change)="changeType($event)" #select>
+        <option selected value="artist">Artist</option>
+        <option value="track">Tracks</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-10 overflow-auto scrollContainer" style="height: 75vh;">
+      @if(history.length == 0){
+        <div class="container alert alert-success d-flex align-items-center justify-content-center">
+          <i class="fa-solid fa-triangle-exclamation me-2"></i> Empty History
+        </div>
+      }
+      @if(type == "artist"){
+        @for(album of albums; track $index){
+          <card-list [items]="albums">
+
+          </card-list>
+        }
+      }
+      @if(type == "track"){
+        @for(album of tracks; track $index){
+          <card-list [items]="tracks">
+
+          </card-list>
+        }
+      }
+    </div>
+    <div class="col-2 bg-dark pt-4 " style="height: 75vh;">
+      @for(value of history;track $index){
+        <div *ngIf="getType(value) === 'artist'" class="container historyItem" (click)="fetchArtistAlbums(getName(value))">
+          <p class="text-light my-auto" style="font-weight: bold;"><i class="fa-solid fa-caret-right me-2"></i> {{getName(value).slice(0,8)}}</p>
+          <p class="text-dark my-auto badge bg-info px-3">{{getType(value)}}</p>
+        </div>
+
+        <div *ngIf="getType(value) === 'track'" class="container historyItem" (click)="fetchTracksByArtistName(getName(value))">
+          <p class="text-light my-auto" style="font-weight: bold;"><i class="fa-solid fa-caret-right me-2"></i> {{getName(value).slice(0,8)}}</p>
+          <p class="text-light my-auto badge bg-success px-3">{{getType(value)}}</p>
+        </div>
+      }
+    </div>
+  </div>
+</div>

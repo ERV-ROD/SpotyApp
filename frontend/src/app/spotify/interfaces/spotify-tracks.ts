@@ -30,6 +30,7 @@ export interface Item {
     type:              ItemType;
     uri:               string;
     is_local:          boolean;
+    items:             Item[];
 }
 
 export interface Album {

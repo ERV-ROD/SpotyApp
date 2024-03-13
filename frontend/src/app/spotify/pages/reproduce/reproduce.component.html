@@ -1,0 +1,40 @@
+<div class="container py-3 d-flex flex-row-reverse ">
+  <button class="btn btn-success" (click)="goBack()"><i class="fa-solid fa-circle-arrow-left"></i> Return</button>
+</div>
+
+@if(link == ""){
+  <div class="container alert alert-warning d-flex align-items-center justify-content-center">
+    <i class="fa-solid fa-triangle-exclamation me-2"></i> Loading...
+  </div>
+}@else {
+
+  <div class="container bg-dark p-2 rounded">
+    <div class="row">
+      <div class="col-4">
+        <img class="img-fluid  rounded" [src]="item.album.images[0].url" alt="">
+      </div>
+      <div class="col-8 align-center d-flex flex-column justify-content-center">
+        <div class="row">
+          <div class="col">
+            <h1 class="text-light "><i class="fa-solid fa-music me-3" style="font-size: 25px;"></i>{{item.name}} - @for(artist of item.album.artists; track $index){{{artist.name}} }</h1>
+            <h4 class="text-light mt-3"><i class="fa-solid fa-record-vinyl me-3"></i>{{item.album.name}}</h4>
+          </div>
+        </div>
+        <div class="row ">
+          <audio controls>
+            <source [src]=link type="audio/mp3" class="audio">
+            Tu navegador no soporta el elemento de audio.
+          </audio>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+
+}
+
+
+
