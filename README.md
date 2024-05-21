@@ -23,7 +23,7 @@ SpotyApp is built using the following technologies:
 To install SpotyApp locally, follow these steps:
 
 1. Clone the repository from GitHub: `git clone https://github.com/spotyapp.git`
-2. Navigate to the project directory: `cd SpotyApp`
+2. Navigate to the project directory: `cd Frontend`
 3. Install dependencies: `npm i`
 4. Start the server: `npm run start`
 5. Open your browser and visit `http://localhost:4200` to access SpotyApp.
